@@ -24,27 +24,27 @@ const vehicleArray = vehicles.map((vehicle, index) => {
 
 const authors = [
     {
-        id: '1',
+        id: 1,
         name: ' harry potter 1',
         author: 'J K Rolling'
     },
     {
-        id: '2',
+        id: 2,
         name: ' harry potter 2',
         author: 'J K Rolling'
     },
     {
-        id: '3',
+        id: 3,
         name: ' harry potter 3',
         author: 'J K Rolling'
     },
     {
-        id: '4',
+        id: 4,
         name: ' harry potter 4',
         author: 'J K Rolling'
-    }, 
+    },
     {
-        id: '5',
+        id: 5,
         name: ' harry potter 5',
         author: 'J K Rolling'
     }
@@ -55,31 +55,36 @@ function BookList() {
         <div>
             BookList
             <Book img={vehicle1.img} name={vehicle1.name} title={vehicle1.title}>
-                <p>Some content in this message has been blocked because the sender isn't in your Safe senders list. I trust content from noreply+228311eb682e7a8df45786631228a20142b25e287dcabdaff4834dd2@am.atlassian.com.
-                Show blocked content
-                </p>
+                    <>Some content in this message has been blocked because the sender isn't in your Safe senders list. I trust content from noreply+228311eb682e7a8df45786631228a20142b25e287dcabdaff4834dd2@am.atlassian.com.
+                        Show blocked content
+                    </>
+                
+
             </Book>
-            <Book img={vehicle2.img } name={vehicle2.name} title={vehicle2.title}/>
+            <Book img={vehicle2.img} name={vehicle2.name} title={vehicle2.title} />
 
             <div>{vehicleArray}</div>
-            <div>{cars.map((car) => {return (<h1 >{car}</h1>)})}</div>
+            <div>{cars.map((car, index) => { return (<h1 key={index} >{car}</h1>) })}</div>
 
-            {/* ====================================================================== */}
-            
+
+
+            {/* ======================================================================  */}
+
             <div>{authors.map((author) => {
                 return (
-                    <>
+                    <div key={author.id}>
                         <h1>{author.id}</h1>
                         <h3>{author.name}</h3>
                         <h3>{author.author}</h3>
-                    </>
+                    </div>
                 )
             })}</div>
-                        <div>{authors.map((author) => {
+
+            <div>{authors.map((author) => {
                 return (
-                    <>
-                        <Authors author={author}></Authors>
-                    </>
+                    <div key={author.id}>
+                        <Authors {...author}></Authors>
+                    </div>
                 )
             })}</div>
         </div>
